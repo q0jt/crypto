@@ -97,6 +97,10 @@ func IDKey(password, salt []byte, time, memory uint32, threads uint8, keyLen uin
 	return deriveKey(argon2id, password, salt, nil, nil, time, memory, threads, keyLen)
 }
 
+func IDKeyWithAAD(password, salt, aad []byte, time, memory uint32, threads uint8, keyLen uint32) []byte {
+	return deriveKey(argon2id, password, salt, nil, aad, time, memory, threads, keyLen)
+}
+
 func deriveKey(mode int, password, salt, secret, data []byte, time, memory uint32, threads uint8, keyLen uint32) []byte {
 	if time < 1 {
 		panic("argon2: number of rounds too small")
