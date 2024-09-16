@@ -1,4 +1,4 @@
-module golang.org/x/crypto
+module github.com/q0jt/crypto
 
 go 1.20
 
